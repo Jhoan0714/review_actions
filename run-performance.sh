@@ -26,6 +26,8 @@ CONT_NAME="$TEST_ENV-$TEST_NAME"
 #Test Execution
 docker rm -f "$CONT_NAME"
 docker run --name "$CONT_NAME" -i \
+  -v $(pwd)/..:/home \
+  -w /home \
   lendingfront/jmeter:5.0 \
     -n \
     -t $TEST_SUITE \
