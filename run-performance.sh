@@ -21,6 +21,8 @@ echo "Testing API: ${API_URL}"
 LP_TEST_LOOPS=${LP_TEST_LOOPS:-1}
 CONT_NAME="$TEST_ENV-$TEST_NAME"
 
+mkdir logs
+
 #Test Execution
 docker rm -f "$CONT_NAME"
 docker run --name "$CONT_NAME" -i \
