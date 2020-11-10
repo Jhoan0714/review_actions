@@ -26,12 +26,10 @@ CONT_NAME="$TEST_ENV-$TEST_NAME"
 #Test Execution
 docker rm -f "$CONT_NAME"
 docker run --name "$CONT_NAME" -i \
-  -v $(pwd)/..:/home/performance \
-  -w /home/performance \
   lendingfront/jmeter:5.0 \
     -n \
     -t $TEST_SUITE \
-    -l "$LOGS/$TEST_NAME.jtl" \
+    -l "logs/$TEST_NAME.jtl" \
     -Jthreads=$USERS \
     -JapiTimeout=$API_TIMEOUT \
     -JapiURL=$API_URL \
