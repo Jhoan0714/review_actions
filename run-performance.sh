@@ -42,3 +42,5 @@ docker wait $CONT_NAME
 
 CONTAINER_OUTPUT=$(docker logs $CONT_NAME)
 docker rm -f $CONT_NAME
+
+ls -l logs/
