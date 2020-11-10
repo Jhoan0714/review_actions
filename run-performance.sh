@@ -41,13 +41,4 @@ docker run --name "$CONT_NAME" -i \
 docker wait $CONT_NAME
 
 CONTAINER_OUTPUT=$(docker logs $CONT_NAME)
-
-if [[ $CONTAINER_OUTPUT == *"Err:     0 (0.00%)"* ]]; then
-  printf "${GREEN}Test: $TEST_NAME - PASSED ${NC}\n"
-  docker rm -f $CONT_NAME
-  exit 0
-fi
-
-printf "${RED}Test: $TEST_NAME - FAILED ${NC}\n"
 docker rm -f $CONT_NAME
-exit 1
