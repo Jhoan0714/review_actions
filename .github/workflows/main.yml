@@ -10,7 +10,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Execute Test
       run: |
-        sh run-performance.sh
+        sh run-performance.sh ${{ github.workspace }}/get.jmx
     - name: Upload Results
       uses: actions/upload-artifact@v2
       with:
