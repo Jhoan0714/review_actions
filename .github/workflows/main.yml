@@ -7,12 +7,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Execute Test
-      run: |
-        sh run-performance.sh ${{ github.workspace }}/get.jmx ${{ github.workspace }}/logs
-    - name: Upload Results
-      uses: actions/upload-artifact@v2
+    - name: Page 1
+      uses: peaceiris/actions-gh-pages@v3
       with:
-        name: report-test
-        path: logs/
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: results/JMeterReport-1/
+        destination_dir: performance-bfs-lp-prod-1/
+    
+    - name: Page 2
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: results/JMeterReport-10/
+        destination_dir: performance-bfs-lp-prod-10/
