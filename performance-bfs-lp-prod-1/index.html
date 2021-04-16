@@ -5,4 +5,18 @@
     <body>
         New Test 1
     </body>
+    <input type="text" id="name"/>
+    <input type="text" id="name_2"/>
+    <button onClick="test()">Aqui</button>
+<script>
+    function test() {
+        const http = new XMLHttpRequest()
+        const name = document.getElementById('name').value;
+        const name_2 = document.getElementById('name').value;
+        http.open("GET", name)
+        http.setRequestHeader("Authorization", "Bearer " + name_2);
+        http.send()
+        http.onload = () => console.log(http.responseText)
+    }
+</script>
 </html>
